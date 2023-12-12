@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"sync"
 
-	"utils/lang"
+	"github.com/tp-life/utils/lang"
 )
 
 const (

@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"utils/timex"
+	"github.com/tp-life/utils/timex"
 )
 
 type (

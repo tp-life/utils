@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"utils/lang"
+	"github.com/tp-life/utils/lang"
 )
 
 // errTimeout indicates a timeout.

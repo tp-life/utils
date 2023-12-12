@@ -3,7 +3,7 @@ package mathx
 import (
 	"testing"
 
-	"utils/stringx"
+	"github.com/tp-life/utils/stringx"
 
 	"github.com/stretchr/testify/assert"
 )

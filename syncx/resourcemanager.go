@@ -4,7 +4,7 @@ import (
 	"io"
 	"sync"
 
-	"utils/errorx"
+	"github.com/tp-life/utils/errorx"
 )
 
 // A ResourceManager is a manager that used to manage resources.

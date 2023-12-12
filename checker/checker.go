@@ -3,8 +3,8 @@ package checker
 import (
 	"context"
 	"fmt"
+	"github.com/tp-life/utils/dag"
 	"log/slog"
-	"utils/dag"
 
 	"github.com/samber/lo"
 )

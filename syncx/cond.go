@@ -3,8 +3,8 @@ package syncx
 import (
 	"time"
 
-	"utils/lang"
-	"utils/timex"
+	"github.com/tp-life/utils/lang"
+	"github.com/tp-life/utils/timex"
 )
 
 // A Cond is used to wait for conditions.

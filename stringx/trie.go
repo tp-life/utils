@@ -1,6 +1,6 @@
 package stringx
 
-import "utils/lang"
+import "github.com/tp-life/utils/lang"
 
 const defaultMask = '*'
 

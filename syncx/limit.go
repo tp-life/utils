@@ -3,7 +3,7 @@ package syncx
 import (
 	"errors"
 
-	"utils/lang"
+	"github.com/tp-life/utils/lang"
 )
 
 // ErrLimitReturn indicates that the more than borrowed elements were returned.

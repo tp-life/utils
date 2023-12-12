@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"testing"
 
-	"utils/mathx"
+	"github.com/tp-life/utils/mathx"
 
 	"github.com/stretchr/testify/assert"
 )

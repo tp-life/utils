@@ -3,7 +3,7 @@ package syncx
 import (
 	"sync"
 
-	"utils/lang"
+	"github.com/tp-life/utils/lang"
 )
 
 // A DoneChan is used as a channel that can be closed multiple times and wait for done.

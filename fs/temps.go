@@ -3,7 +3,7 @@ package fs
 import (
 	"os"
 
-	"utils/hash"
+	"github.com/tp-life/utils/hash"
 )
 
 // TempFileWithText creates the temporary file with the given content,

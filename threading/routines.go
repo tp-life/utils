@@ -5,7 +5,7 @@ import (
 	"runtime"
 	"strconv"
 
-	"utils/rescue"
+	"github.com/tp-life/utils/rescue"
 )
 
 // GoSafe runs the given fn using another goroutine, recovers if fn panics.

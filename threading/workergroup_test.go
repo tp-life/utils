@@ -6,7 +6,7 @@ import (
 	"sync"
 	"testing"
 
-	"utils/lang"
+	"github.com/tp-life/utils/lang"
 
 	"github.com/stretchr/testify/assert"
 )

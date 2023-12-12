@@ -1,8 +1,8 @@
 package threading
 
 import (
-	"utils/lang"
-	"utils/rescue"
+	"github.com/tp-life/utils/lang"
+	"github.com/tp-life/utils/rescue"
 )
 
 // A TaskRunner is used to control the concurrency of goroutines.

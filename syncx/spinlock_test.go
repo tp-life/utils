@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"utils/lang"
+	"github.com/tp-life/utils/lang"
 
 	"github.com/stretchr/testify/assert"
 )

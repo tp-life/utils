@@ -8,10 +8,10 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"utils/lang"
-	"utils/stringx"
-	"utils/syncx"
-	"utils/timex"
+	"github.com/tp-life/utils/lang"
+	"github.com/tp-life/utils/stringx"
+	"github.com/tp-life/utils/syncx"
+	"github.com/tp-life/utils/timex"
 )
 
 const (

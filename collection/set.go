@@ -1,8 +1,8 @@
 package collection
 
 import (
+	"github.com/tp-life/utils/lang"
 	"log/slog"
-	"utils/lang"
 )
 
 const (

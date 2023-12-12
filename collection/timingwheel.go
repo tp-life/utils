@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"time"
 
-	"utils/lang"
-	"utils/threading"
-	"utils/timex"
+	"github.com/tp-life/utils/lang"
+	"github.com/tp-life/utils/threading"
+	"github.com/tp-life/utils/timex"
 )
 
 const drainWorkers = 8

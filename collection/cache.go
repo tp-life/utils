@@ -8,8 +8,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"utils/mathx"
-	"utils/syncx"
+	"github.com/tp-life/utils/mathx"
+	"github.com/tp-life/utils/syncx"
 )
 
 const (

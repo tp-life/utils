@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"utils/stringx"
+	"github.com/tp-life/utils/stringx"
 )
 
 const duration = time.Millisecond * 50

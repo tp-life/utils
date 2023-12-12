@@ -1,4 +1,4 @@
-module utils
+module github.com/tp-life/utils
 
 go 1.21.4
 
