@@ -2,12 +2,11 @@ package collection
 
 import (
 	"container/list"
-	"fmt"
-	"log/slog"
 	"sync"
 	"sync/atomic"
 	"time"
 
+	"github.com/tp-life/utils/logx"
 	"github.com/tp-life/utils/mathx"
 	"github.com/tp-life/utils/syncx"
 )
@@ -301,7 +300,7 @@ func (cs *cacheStat) statLoop() {
 			continue
 		}
 		percent := 100 * float32(hit) / float32(total)
-		slog.Info(fmt.Sprintf("cache(%s) - qpm: %d, hit_ratio: %.1f%%, elements: %d, hit: %d, miss: %d",
-			cs.name, total, percent, cs.sizeCallback(), hit, miss))
+		logx.Statf("cache(%s) - qpm: %d, hit_ratio: %.1f%%, elements: %d, hit: %d, miss: %d",
+			cs.name, total, percent, cs.sizeCallback(), hit, miss)
 	}
 }

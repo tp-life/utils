@@ -3,9 +3,8 @@ package mathx
 import (
 	"testing"
 
-	"github.com/tp-life/utils/stringx"
-
 	"github.com/stretchr/testify/assert"
+	"github.com/tp-life/utils/stringx"
 )
 
 func TestMaxInt(t *testing.T) {

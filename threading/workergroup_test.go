@@ -6,9 +6,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/tp-life/utils/lang"
-
 	"github.com/stretchr/testify/assert"
+	"github.com/tp-life/utils/lang"
 )
 
 func TestWorkerGroup(t *testing.T) {

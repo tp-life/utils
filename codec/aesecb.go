@@ -6,7 +6,8 @@ import (
 	"crypto/cipher"
 	"encoding/base64"
 	"errors"
-	"log/slog"
+
+	"github.com/tp-life/utils/logx"
 )
 
 // ErrPaddingSize indicates bad padding size.
@@ -38,11 +39,11 @@ func (x *ecbEncrypter) BlockSize() int { return x.blockSize }
 // the block size. Dst and src must overlap entirely or not at all.
 func (x *ecbEncrypter) CryptBlocks(dst, src []byte) {
 	if len(src)%x.blockSize != 0 {
-		slog.Error("crypto/cipher: input not full blocks")
+		logx.Error("crypto/cipher: input not full blocks")
 		return
 	}
 	if len(dst) < len(src) {
-		slog.Error("crypto/cipher: output smaller than input")
+		logx.Error("crypto/cipher: output smaller than input")
 		return
 	}
 
@@ -69,11 +70,11 @@ func (x *ecbDecrypter) BlockSize() int {
 // the block size. Dst and src must overlap entirely or not at all.
 func (x *ecbDecrypter) CryptBlocks(dst, src []byte) {
 	if len(src)%x.blockSize != 0 {
-		slog.Error("crypto/cipher: input not full blocks")
+		logx.Error("crypto/cipher: input not full blocks")
 		return
 	}
 	if len(dst) < len(src) {
-		slog.Error("crypto/cipher: output smaller than input")
+		logx.Error("crypto/cipher: output smaller than input")
 		return
 	}
 
@@ -88,7 +89,7 @@ func (x *ecbDecrypter) CryptBlocks(dst, src []byte) {
 func EcbDecrypt(key, src []byte) ([]byte, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
-		slog.Error("Decrypt key error: ", slog.Any("key", key))
+		logx.Errorf("Decrypt key error: % x", key)
 		return nil, err
 	}
 
@@ -124,7 +125,7 @@ func EcbDecryptBase64(key, src string) (string, error) {
 func EcbEncrypt(key, src []byte) ([]byte, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
-		slog.Error("Encrypt key error: ", slog.Any("key", key))
+		logx.Errorf("Encrypt key error: % x", key)
 		return nil, err
 	}
 

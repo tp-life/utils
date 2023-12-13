@@ -2,7 +2,7 @@ package collection
 
 import (
 	"github.com/tp-life/utils/lang"
-	"log/slog"
+	"github.com/tp-life/utils/logx"
 )
 
 const (
@@ -213,23 +213,23 @@ func (s *Set) validate(i any) {
 	switch i.(type) {
 	case int:
 		if s.tp != intType {
-			slog.Error("element is int, but set contains elements with type ", slog.Any("type", s.tp))
+			logx.Errorf("element is int, but set contains elements with type %d", s.tp)
 		}
 	case int64:
 		if s.tp != int64Type {
-			slog.Error("element is int64, but set contains elements with type ", slog.Any("type", s.tp))
+			logx.Errorf("element is int64, but set contains elements with type %d", s.tp)
 		}
 	case uint:
 		if s.tp != uintType {
-			slog.Error("element is uint, but set contains elements with type", slog.Any("type", s.tp))
+			logx.Errorf("element is uint, but set contains elements with type %d", s.tp)
 		}
 	case uint64:
 		if s.tp != uint64Type {
-			slog.Error("element is uint64, but set contains elements with type", slog.Any("type", s.tp))
+			logx.Errorf("element is uint64, but set contains elements with type %d", s.tp)
 		}
 	case string:
 		if s.tp != stringType {
-			slog.Error("element is string, but set contains elements with type ", slog.Any("type", s.tp))
+			logx.Errorf("element is string, but set contains elements with type %d", s.tp)
 		}
 	}
 }

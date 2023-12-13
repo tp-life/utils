@@ -7,9 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tp-life/utils/lang"
-
 	"github.com/stretchr/testify/assert"
+	"github.com/tp-life/utils/lang"
 )
 
 func TestTryLock(t *testing.T) {

@@ -2,8 +2,9 @@ package stringx
 
 import (
 	"errors"
-	"github.com/tp-life/utils/lang"
 	"unicode"
+
+	"github.com/tp-life/utils/lang"
 )
 
 var (

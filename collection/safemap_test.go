@@ -4,9 +4,8 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"github.com/tp-life/utils/stringx"
-
 	"github.com/stretchr/testify/assert"
+	"github.com/tp-life/utils/stringx"
 )
 
 func TestSafeMap(t *testing.T) {

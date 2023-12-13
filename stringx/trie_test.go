@@ -129,16 +129,16 @@ func TestTrieSingleWord(t *testing.T) {
 
 func TestTrieOverlap(t *testing.T) {
 	trie := NewTrie([]string{
-		"一二三四七",
-		"二三四六",
-		"三四七",
+		"一二三四五",
+		"二三四五六七八",
 	}, WithMask('#'))
-	output, keywords, ok := trie.Filter("一二三四五六七八九十")
+	output, keywords, ok := trie.Filter("零一二三四五六七八九十")
 	assert.ElementsMatch(t, []string{
-		"二三四五六",
+		"一二三四五",
+		"二三四五六七八",
 	}, keywords)
 	assert.True(t, ok)
-	assert.Equal(t, "一#####七八九十", output)
+	assert.Equal(t, "零########九十", output)
 }
 
 func TestTrieNested(t *testing.T) {

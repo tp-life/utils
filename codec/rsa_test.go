@@ -5,9 +5,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/tp-life/utils/fs"
-
 	"github.com/stretchr/testify/assert"
+	"github.com/tp-life/utils/fs"
 )
 
 const (

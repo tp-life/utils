@@ -1,7 +1,10 @@
 package rescue
 
 import (
-	"log/slog"
+	"context"
+	"runtime/debug"
+
+	"github.com/tp-life/utils/logx"
 )
 
 // Recover is used with defer to do cleanup on panics.
@@ -14,6 +17,17 @@ func Recover(cleanups ...func()) {
 	}
 
 	if p := recover(); p != nil {
-		slog.Error("panic: %v", p)
+		logx.ErrorStack(p)
+	}
+}
+
+// RecoverCtx is used with defer to do cleanup on panics.
+func RecoverCtx(ctx context.Context, cleanups ...func()) {
+	for _, cleanup := range cleanups {
+		cleanup()
+	}
+
+	if p := recover(); p != nil {
+		logx.WithContext(ctx).Errorf("%+v\n%s", p, debug.Stack())
 	}
 }

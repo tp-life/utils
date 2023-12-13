@@ -5,7 +5,12 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/tp-life/utils/logx"
 )
+
+func init() {
+	logx.Disable()
+}
 
 func BenchmarkRawSet(b *testing.B) {
 	m := make(map[any]struct{})

@@ -8,10 +8,24 @@ import (
 
 func TestFuzzNodeCase1(t *testing.T) {
 	keywords := []string{
-		"he",
-		"his",
-		"hers",
-		"she",
+		"cs8Zh",
+		"G1OihlVuBz",
+		"K6azS2FBHjI",
+		"DQKvghI4",
+		"l7bA86Sze",
+		"tjBLZhCao",
+		"nEsXmVzP",
+		"cbRh8UE1nO3s",
+		"Wta3R2WcbGP",
+		"jpOIcA",
+		"TtkRr4k9hI",
+		"OKbSo0clAYTtk",
+		"uJs1WToEanlKV",
+		"05Y02iFD2",
+		"x2uJs1WToEanlK",
+		"ieaSWe",
+		"Kg",
+		"FD2bCKFazH",
 	}
 	scopes := []scope{
 		{62, 72},
@@ -28,7 +42,7 @@ func TestFuzzNodeCase1(t *testing.T) {
 		n.add(key)
 	}
 	n.build()
-	assert.ElementsMatch(t, scopes, n.find([]rune("hers")))
+	assert.ElementsMatch(t, scopes, n.find([]rune("Z05Y02iFD2bCKFazHtrx2uJs1WToEanlKVWKieaSWeKgmnUXV0ZjOKbSo0clAYTtkRr4k9hI")))
 }
 
 func TestFuzzNodeCase2(t *testing.T) {
@@ -108,7 +122,7 @@ func TestFuzzNodeCase2(t *testing.T) {
 		n.add(key)
 	}
 	n.build()
-	assert.ElementsMatch(t, scopes, n.find([]rune("CMICHDCSvSrgiACXVkNF9lw5awC5HeoCq0T2MCpLFgLg0gh2TT5WEyINrMwOvyHbaxdaqpZpUbI7SpIY5yVWf33MuX7K1c456")))
+	assert.ElementsMatch(t, scopes, n.find([]rune("CMICHDCSvSrgiACXVkNF9lw5awC5HeoCq0T2MCpLFgLg0gh2TT5WEyINrMwOvyHbaxdaqpZpUbI7SpIY5yVWf33MuX7K1c")))
 }
 
 func TestFuzzNodeCase3(t *testing.T) {

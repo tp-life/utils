@@ -21,7 +21,7 @@ func TestRealTickerDoTick(t *testing.T) {
 }
 
 func TestFakeTicker(t *testing.T) {
-	const total = 4
+	const total = 5
 	ticker := NewFakeTicker()
 	defer ticker.Stop()
 
