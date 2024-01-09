@@ -12,6 +12,7 @@ require (
 	github.com/pelletier/go-toml/v2 v2.1.0
 	github.com/samber/lo v1.38.1
 	github.com/stretchr/testify v1.8.4
+	github.com/vmihailenco/msgpack/v5 v5.4.1
 	go.etcd.io/etcd/api/v3 v3.5.11
 	go.etcd.io/etcd/client/v3 v3.5.11
 	go.opentelemetry.io/otel v1.21.0
@@ -23,6 +24,7 @@ require (
 	go.opentelemetry.io/otel/sdk v1.21.0
 	go.opentelemetry.io/otel/trace v1.21.0
 	go.uber.org/automaxprocs v1.5.3
+	go.uber.org/zap v1.24.0
 	golang.org/x/sync v0.5.0
 	google.golang.org/grpc v1.59.0
 	gopkg.in/cheggaaa/pb.v1 v1.0.28
@@ -41,13 +43,13 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.18.0 // indirect
 	github.com/h2non/parth v0.0.0-20190131123155-b4df798d6542 // indirect
 	github.com/openzipkin/zipkin-go v0.4.2 // indirect
+	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	go.etcd.io/etcd/client/pkg/v3 v3.5.11 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.21.0 // indirect
 	go.opentelemetry.io/otel/metric v1.21.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.0.0 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/multierr v1.9.0 // indirect
-	go.uber.org/zap v1.24.0 // indirect
 	google.golang.org/genproto v0.0.0-20231016165738-49dd2c1f3d0b // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20231016165738-49dd2c1f3d0b // indirect
 )
