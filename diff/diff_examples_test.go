@@ -256,11 +256,11 @@ func ExamplePrimitiveSlice() {
 func ExampleComplexSlicePatch() {
 
 	type Content struct {
-		Text   string `diff:",create"`
-		Number int    `diff:",create"`
+		Text   string `diff:"text,create"`
+		Number int    `diff:"number,create"`
 	}
 	type Attributes struct {
-		Labels []Content `diff:",create"`
+		Labels []Content `diff:"labels,create"`
 	}
 
 	a := Attributes{
@@ -290,14 +290,6 @@ func ExampleComplexSlicePatch() {
 				Text:   "location",
 				Number: 0x32,
 			},
-			{
-				Text:   "colors",
-				Number: 1222,
-			},
-			{
-				Text:   "trees",
-				Number: 34,
-			},
 		},
 	}
 	c := Attributes{}
@@ -307,6 +299,9 @@ func ExampleComplexSlicePatch() {
 		panic(err)
 	}
 
+	dr := NewDiffResult(changelog)
+	keys := dr.GetAllKey()
+	fmt.Println(keys)
 	patchLog := Patch(changelog, &c)
 
 	fmt.Printf("Patched %d entries and encountered %d errors", len(patchLog), patchLog.ErrorCount())
