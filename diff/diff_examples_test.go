@@ -256,11 +256,11 @@ func ExamplePrimitiveSlice() {
 func ExampleComplexSlicePatch() {
 
 	type Content struct {
-		Text   string `diff:"text,create"`
-		Number int    `diff:"number,create"`
+		Text   string `diff:",create"`
+		Number int    `diff:",create"`
 	}
 	type Attributes struct {
-		Labels []Content `diff:"labels,create"`
+		Labels []Content `diff:",create"`
 	}
 
 	a := Attributes{
@@ -294,7 +294,7 @@ func ExampleComplexSlicePatch() {
 	}
 	c := Attributes{}
 
-	changelog, err := Diff(a, b, DiscardComplexOrigin(), StructMapKeySupport())
+	changelog, err := Diff(a, b, StructMapKeySupport())
 	if err != nil {
 		panic(err)
 	}
@@ -303,6 +303,8 @@ func ExampleComplexSlicePatch() {
 	keys := dr.GetAllKey()
 	fmt.Println(keys)
 	patchLog := Patch(changelog, &c)
+
+	// _, err = Merge(&a, &b, &c)
 
 	fmt.Printf("Patched %d entries and encountered %d errors", len(patchLog), patchLog.ErrorCount())
 
@@ -344,7 +346,7 @@ func ExampleComplexMapPatch() {
 		Text: "Sherwood",
 	}
 	b.Labels[Key{Value: "colors"}] = Content{
-		Number: 1222,
+		Number: 1222.0,
 	}
 	b.Labels[Key{Value: "latitude"}] = Content{
 		Number: 38.978797,
@@ -362,7 +364,7 @@ func ExampleComplexMapPatch() {
 		Number:      23.4453,
 	}
 
-	changelog, err := Diff(a, b)
+	changelog, err := Diff(a, b, StructMapKeySupport())
 	if err != nil {
 		panic(err)
 	}
@@ -382,7 +384,7 @@ func ExamplePatch() {
 		weight int
 	}
 	type Cycle struct {
-		Name  string `diff:"name,create"`
+		Name  string `diff:"name1,create"`
 		Count int    `diff:"count,create"`
 	}
 	type Fruit struct {
@@ -390,8 +392,8 @@ func ExamplePatch() {
 		Name      string        `diff:"name"`
 		Healthy   bool          `diff:"healthy"`
 		Nutrients []string      `diff:"nutrients,create,omitunequal"`
-		Labels    map[Key]Cycle `diff:"labs,create"`
-		Cycles    []Cycle       `diff:"cycles,immutable"`
+		Labels    map[Key]Cycle `diff:"labs"`
+		Cycles    []Cycle       `diff:"cycles"`
 		Weights   []int
 	}
 
@@ -439,12 +441,12 @@ func ExamplePatch() {
 	}
 
 	c := Fruit{
-		//Labels: make(map[string]int),
-		Nutrients: []string{
-			"vitamin a",
-			"vitamin c",
-			"vitamin d",
-		},
+		// Labels: make(map[string]int),
+		// Nutrients: []string{
+		// 	"vitamin a",
+		// 	"vitamin c",
+		// 	"vitamin d",
+		// },
 	}
 	//c.Labels["likes"] = 21
 
@@ -461,14 +463,14 @@ func ExamplePatch() {
 	}
 	d.Nutrients = append(d.Nutrients, "minerals")
 
-	changelog, err := Diff(a, b)
+	changelog, err := Diff(a, b, StructMapKeySupport())
 	if err != nil {
 		panic(err)
 	}
 
 	patchLog := Patch(changelog, &c)
 
-	changelog, _ = Diff(a, d)
+	changelog, _ = Diff(b, d, StructMapKeySupport())
 	patchLog = Patch(changelog, &c)
 
 	fmt.Printf("%#v", len(patchLog))

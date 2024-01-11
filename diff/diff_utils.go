@@ -1,6 +1,12 @@
 package diff
 
-import "strings"
+import (
+	"encoding/json"
+	"errors"
+	"strings"
+
+	"github.com/tp-life/utils/copier"
+)
 
 type DiffResult struct {
 	Change    Changelog
@@ -82,6 +88,27 @@ func (dc *DiffResult) MatchDeep(key string) bool {
 	return false
 }
 
+func (dc *DiffResult) Path(dist any) (ms map[string]any, err error) {
+	log := Patch(dc.Change, dist)
+
+	if log.HasErrors() {
+		err = errors.New("patch error")
+		return
+	}
+
+	if log.Applied() {
+		ms = make(map[string]any)
+		byt, err := json.Marshal(dist)
+		if err != nil {
+			return ms, err
+		}
+		if err := json.Unmarshal(byt, &ms); err != nil {
+			return ms, err
+		}
+	}
+	return
+}
+
 // 指定类型变更的字段
 func Diff4Empty[T any](dist T) (*DiffResult, error) {
 	src := new(T)
@@ -90,4 +117,30 @@ func Diff4Empty[T any](dist T) (*DiffResult, error) {
 		return nil, err
 	}
 	return NewDiffResult(changelog), nil
+}
+
+// 指定类型变更的字段
+func Diff4Tag[T any](dist T, tag string) (*DiffResult, error) {
+	src := new(T)
+	changelog, err := Diff(*src, dist, TagName(tag))
+	if err != nil {
+		return nil, err
+	}
+	return NewDiffResult(changelog), nil
+}
+
+// 复制两个结构 并比较两个结构体的差异
+func CopyWithDiff[T any](src, dist T, opts ...copier.TypeConverter) (dr *DiffResult, err error) {
+	err = copier.CopyOption(src, dist, opts...)
+	if err != nil {
+		return
+	}
+
+	change, err := Diff(dist, src)
+	if err != nil {
+		return nil, err
+	}
+
+	dr = NewDiffResult(change)
+	return
 }
