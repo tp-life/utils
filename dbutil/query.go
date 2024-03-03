@@ -152,7 +152,8 @@ func SelectPage[T any](db *gorm.DB, page IPage[T], cond *Condition, opts ...Opti
 
 	var count int64 // 统计总的记录数
 	if cond != nil {
-		db = db.Where(cond.Get())
+		s, c := cond.Get()
+		db = db.Where(s, c...)
 	}
 	query := db.Where(options.Query)
 	if err = query.Count(&count).Error; err != nil {
@@ -265,7 +266,8 @@ func GetBatchFromPage[T any](db *gorm.DB, size, page int64, cond *Condition, ord
 // GetBatchFromPage 获取分页数据
 func GetBatchFromCondition[T any](db *gorm.DB, cond *Condition) (result []T, err error) {
 	if cond != nil {
-		db = db.Where(cond.Get())
+		s, c := cond.Get()
+		db = db.Where(s, c...)
 	}
 	err = db.Find(&result).Error
 	return
